@@ -1,11 +1,13 @@
 // src/tasks/tasks.service.ts
-import { Injectable } from '@nestjs/common';
+import { Injectable, Logger } from '@nestjs/common';
 
 @Injectable()
 export class TasksService {
+  private readonly logger = new Logger(TasksService.name);
   private tasks = ['Task 1', 'Task 2', 'Task 3'];
 
   getTasks() {
+    this.logger.log('Fetching tasks from the service...');
     return this.tasks;
   }
 }
