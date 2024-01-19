@@ -1,5 +1,5 @@
 // src/tasks/tasks.controller.ts
-import { Controller, Get, Logger, Post, Body, Param, HttpException, HttpStatus } from '@nestjs/common';
+import { Controller, Get, Logger, Post, Body, Param } from '@nestjs/common';
 import { ApiTags } from '@nestjs/swagger';
 import { TasksService } from './tasks.service';
 import { TaskDto } from './dto/task.dto';
@@ -26,12 +26,6 @@ export class TasksController {
   @Get(':id')
   getTaskById(@Param('id') id: string) {
     this.logger.log(`Fetching task with ID: ${id}`);
-    return this.tasksService.getTaskById(id);;
-  }
-
-  // Add a sample endpoint that throws a generic exception
-  @Get('error-sample')
-  throwError() {
-    throw new HttpException('Sample error message', HttpStatus.INTERNAL_SERVER_ERROR);
+    return this.tasksService.getTaskById(id);
   }
 }

@@ -2,6 +2,7 @@
 import { Injectable, Logger } from '@nestjs/common';
 import { TaskDto } from './dto/task.dto';
 import { TaskNotFoundException } from 'src/common/exceptions/task-not-found.exception';
+import { HttpService } from 'src/common/http/http.service';
 
 @Injectable()
 export class TasksService {
@@ -11,6 +12,8 @@ export class TasksService {
     { id: '2', title: 'Task 2' },
     { id: '3', title: 'Task 3' },
   ];
+
+  constructor() {}
 
   getTasks() {
     this.logger.log('Fetching tasks from the service...');
