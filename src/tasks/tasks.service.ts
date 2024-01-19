@@ -1,8 +1,7 @@
 // src/tasks/tasks.service.ts
 import { Injectable, Logger } from '@nestjs/common';
-import { ApiTags } from '@nestjs/swagger';
+import { TaskDto } from './dto/task.dto';
 
-@ApiTags('tasks') // Swagger tag
 @Injectable()
 export class TasksService {
   private readonly logger = new Logger(TasksService.name);
@@ -11,5 +10,11 @@ export class TasksService {
   getTasks() {
     this.logger.log('Fetching tasks from the service...');
     return this.tasks;
+  }
+
+  createTask(taskDto: TaskDto) {
+    this.logger.log(`Creating task with title: ${taskDto.title}`);
+    this.tasks.push(taskDto.title);
+    return taskDto;
   }
 }
