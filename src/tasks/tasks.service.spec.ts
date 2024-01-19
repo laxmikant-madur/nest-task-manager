@@ -1,6 +1,6 @@
 // test/tasks.service.spec.ts
 import { Test, TestingModule } from '@nestjs/testing';
-import { TasksService } from '../src/tasks/tasks.service';
+import { TasksService } from './tasks.service';
 
 describe('TasksService', () => {
   let service: TasksService;
@@ -18,6 +18,10 @@ describe('TasksService', () => {
   });
 
   it('should return an array of tasks', () => {
-    expect(service.getTasks()).toEqual(['Task 1', 'Task 2', 'Task 3']);
+    expect(service.getTasks()).toEqual([
+      { id: '1', title: 'Task 1' },
+      { id: '2', title: 'Task 2' },
+      { id: '3', title: 'Task 3' },
+    ]);
   });
 });

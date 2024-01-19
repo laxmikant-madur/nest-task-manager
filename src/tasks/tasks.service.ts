@@ -1,8 +1,7 @@
 // src/tasks/tasks.service.ts
 import { Injectable, Logger } from '@nestjs/common';
 import { TaskDto } from './dto/task.dto';
-import { TaskNotFoundException } from 'src/common/exceptions/task-not-found.exception';
-import { HttpService } from 'src/common/http/http.service';
+import { TaskNotFoundException } from '../common/exceptions/task-not-found.exception';
 
 @Injectable()
 export class TasksService {

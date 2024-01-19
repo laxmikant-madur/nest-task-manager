@@ -1,7 +1,7 @@
 // test/tasks.controller.spec.ts
 import { Test, TestingModule } from '@nestjs/testing';
-import { TasksController } from '../src/tasks/tasks.controller';
-import { TasksService } from '../src/tasks/tasks.service';
+import { TasksController } from './tasks.controller';
+import { TasksService } from './tasks.service';
 
 describe('TasksController', () => {
   let controller: TasksController;
@@ -20,6 +20,10 @@ describe('TasksController', () => {
   });
 
   it('should return an array of tasks', () => {
-    expect(controller.getTasks()).toEqual(['Task 1', 'Task 2', 'Task 3']);
+    expect(controller.getTasks()).toEqual([
+      { id: '1', title: 'Task 1' },
+      { id: '2', title: 'Task 2' },
+      { id: '3', title: 'Task 3' },
+    ]);
   });
 });
